@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:machine_test/Screens/sign_up.dart';
@@ -49,6 +48,63 @@ class OnBoardPage extends StatelessWidget {
                 width: width,
                 child: Column(
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Colors.white,
+                          child: Text(
+                            "1",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Container(
+                            width: 10,
+                            height: 2,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Color(0xFF404040),
+                          child: Text(
+                            "2",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Container(
+                            width: 10,
+                            height: 2,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Color(0xFF404040),
+                          child: Text(
+                            "3",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: height * .025,
+                    ),
                     Text(
                       "Too tired to walk your dog?",
                       style: GoogleFonts.poppins(

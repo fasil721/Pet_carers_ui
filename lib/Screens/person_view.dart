@@ -23,8 +23,13 @@ class PersonView extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: Image.asset(
-                  "assets/CLOSE.png",
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Image.asset(
+                    "assets/CLOSE.png",
+                  ),
                 ),
               ),
             ),
