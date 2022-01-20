@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:machine_test/Screens/home_page.dart';
 
 class JoinPage extends StatelessWidget {
   JoinPage({Key? key}) : super(key: key);
@@ -72,7 +73,6 @@ class JoinPage extends StatelessWidget {
                   ),
                   TextFormField(
                     controller: fullnameController,
-                    obscureText: true,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -99,7 +99,6 @@ class JoinPage extends StatelessWidget {
                   ),
                   TextFormField(
                     controller: emailController,
-                    obscureText: true,
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -152,12 +151,18 @@ class JoinPage extends StatelessWidget {
                     height: height * .025,
                   ),
                   GestureDetector(
-                    onTap: () async {
+                    onTap: () {
                       SystemChannels.textInput.invokeMethod("TextInput.hide");
-
-                      if (_formkey.currentState!.validate()) {
-                        await Future.delayed(const Duration(seconds: 2));
-                      }
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>  HomePage(),
+                        ),
+                        (route) => false,
+                      );
+                      // if (_formkey.currentState!.validate()) {
+                      //   await Future.delayed(const Duration(seconds: 2));
+                      // }
                     },
                     child: Container(
                       width: width,
@@ -186,11 +191,11 @@ class JoinPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: height * 0.05),
-                child: AnimatedOpacity(
-                  opacity: isVisible ? 1 : 0,
-                  duration: const Duration(milliseconds: 200),
+              AnimatedOpacity(
+                opacity: isVisible ? 1 : 0,
+                duration: const Duration(milliseconds: 200),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: height * 0.05),
                   child: Column(
                     children: [
                       Row(
