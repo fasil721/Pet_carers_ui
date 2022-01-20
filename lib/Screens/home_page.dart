@@ -21,12 +21,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffFCFCFC),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+        child: ListView(
+          children: [
+            SizedBox(
+              height: height * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
@@ -36,7 +38,7 @@ class HomePage extends StatelessWidget {
                         "Home",
                         style: GoogleFonts.poppins(
                           decoration: TextDecoration.none,
-                          fontSize: textFactor * 24,
+                          fontSize: textFactor * 27,
                           color: Colors.black.withOpacity(0.9),
                           fontWeight: FontWeight.bold,
                         ),
@@ -86,10 +88,13 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
-                height: height * .025,
-              ),
-              ListTile(
+            ),
+            SizedBox(
+              height: height * .025,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: ListTile(
                 tileColor: const Color(0xffE7EAF0),
                 textColor: const Color(0xffE7EAF0),
                 contentPadding: const EdgeInsets.only(
@@ -123,17 +128,20 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: height * 0.02,
-              ),
-              Row(
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Near you",
                     style: GoogleFonts.poppins(
                       decoration: TextDecoration.none,
-                      fontSize: textFactor * 24,
+                      fontSize: textFactor * 27,
                       color: Colors.black.withOpacity(0.9),
                       fontWeight: FontWeight.bold,
                     ),
@@ -149,30 +157,230 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              Expanded(
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: nearYou.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          child:
-                              Image.asset(nearYou[index]["image"].toString()),
-                        )
-                      ],
-                    );
-                  },
-                  separatorBuilder: (BuildContext context, int index) =>
-                      SizedBox(
-                    width: width * 0.2,
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Flexible(
+                child: SizedBox(
+                  height: height * 0.23,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: nearYou.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            width: width * 0.45,
+                            child: Image.asset(
+                              nearYou[index]["image"].toString(),
+                            ),
+                          ),
+                          SizedBox(
+                            height: height * 0.01,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    nearYou[index]["title"].toString(),
+                                    style: GoogleFonts.poppins(
+                                      decoration: TextDecoration.none,
+                                      fontSize: textFactor * 14,
+                                      color: Colors.black.withOpacity(0.9),
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.location_on_outlined,
+                                        size: 12,
+                                      ),
+                                      SizedBox(
+                                        width: width * 0.005,
+                                      ),
+                                      Text(
+                                        "${nearYou[index]["location"]} from you",
+                                        style: GoogleFonts.poppins(
+                                          decoration: TextDecoration.none,
+                                          fontSize: textFactor * 9,
+                                          color: Colors.grey[600],
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                width: width * 0.12,
+                              ),
+                              Container(
+                                width: width * .1,
+                                height: height * 0.025,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff2B2B2B),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "5/h",
+                                    style: GoogleFonts.poppins(
+                                      decoration: TextDecoration.none,
+                                      fontSize: textFactor * 8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) =>
+                        SizedBox(
+                      width: width * 0.12,
+                    ),
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              child: Divider(
+                thickness: 0.6,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Suggesed",
+                    style: GoogleFonts.poppins(
+                      decoration: TextDecoration.none,
+                      fontSize: textFactor * 25,
+                      color: Colors.black.withOpacity(0.9),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "View all",
+                    style: GoogleFonts.poppins(
+                      decoration: TextDecoration.underline,
+                      fontSize: textFactor * 12,
+                      color: Colors.black.withOpacity(0.9),
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Flexible(
+                child: SizedBox(
+                  height: height * 0.23,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: nearYou.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            width: width * 0.45,
+                            child: Image.asset(
+                              suggested[index]["image"].toString(),
+                            ),
+                          ),
+                          SizedBox(
+                            height: height * 0.01,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    suggested[index]["title"].toString(),
+                                    style: GoogleFonts.poppins(
+                                      decoration: TextDecoration.none,
+                                      fontSize: textFactor * 14,
+                                      color: Colors.black.withOpacity(0.9),
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.location_on_outlined,
+                                        size: 12,
+                                      ),
+                                      SizedBox(
+                                        width: width * 0.005,
+                                      ),
+                                      Text(
+                                        "${suggested[index]["location"]} from you",
+                                        style: GoogleFonts.poppins(
+                                          decoration: TextDecoration.none,
+                                          fontSize: textFactor * 9,
+                                          color: Colors.grey[600],
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                width: width * 0.09,
+                              ),
+                              Container(
+                                width: width * .1,
+                                height: height * 0.025,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff2B2B2B),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "3/h",
+                                    style: GoogleFonts.poppins(
+                                      decoration: TextDecoration.none,
+                                      fontSize: textFactor * 8,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) =>
+                        SizedBox(
+                      width: width * 0.12,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
