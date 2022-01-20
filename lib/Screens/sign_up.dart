@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:machine_test/Screens/home_page.dart';
 
-class JoinPage extends StatelessWidget {
-  JoinPage({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+  SignUpPage({Key? key}) : super(key: key);
   final fullnameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();

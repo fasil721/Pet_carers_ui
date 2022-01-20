@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:machine_test/Screens/person_view.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -163,14 +164,22 @@ class HomePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: Flexible(
-                child: SizedBox(
-                  height: height * 0.23,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: nearYou.length,
-                    itemBuilder: (context, index) {
-                      return Column(
+              child: SizedBox(
+                height: height * 0.23,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: nearYou.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PersonView(),
+                          ),
+                        );
+                      },
+                      child: Column(
                         children: [
                           SizedBox(
                             width: width * 0.45,
@@ -243,12 +252,12 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ],
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(
-                      width: width * 0.12,
-                    ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SizedBox(
+                    width: width * 0.12,
                   ),
                 ),
               ),
@@ -290,14 +299,22 @@ class HomePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: Flexible(
-                child: SizedBox(
-                  height: height * 0.23,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: nearYou.length,
-                    itemBuilder: (context, index) {
-                      return Column(
+              child: SizedBox(
+                height: height * 0.23,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: nearYou.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PersonView(),
+                          ),
+                        );
+                      },
+                      child: Column(
                         children: [
                           SizedBox(
                             width: width * 0.45,
@@ -370,12 +387,12 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ],
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) =>
-                        SizedBox(
-                      width: width * 0.12,
-                    ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) =>
+                      SizedBox(
+                    width: width * 0.12,
                   ),
                 ),
               ),

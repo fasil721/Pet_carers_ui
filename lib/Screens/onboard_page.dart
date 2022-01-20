@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:machine_test/Screens/join_page.dart';
+import 'package:machine_test/Screens/sign_up.dart';
 
 class OnBoardPage extends StatelessWidget {
   const OnBoardPage({Key? key}) : super(key: key);
@@ -75,7 +75,7 @@ class OnBoardPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => JoinPage(),
+                            builder: (context) => SignUpPage(),
                           ),
                         );
                       },
